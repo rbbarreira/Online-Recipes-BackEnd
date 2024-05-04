@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Online Recipes-Api", "Onlin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Online Recipes-Domain", "Online Recipes-Domain\Online Recipes-Domain.csproj", "{267B18AB-0486-4109-8B77-9335051DE28F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Online Recipes-Data", "Online Recipes-Data\Online Recipes-Data.csproj", "{D7E6F9DE-13FF-45D2-A616-9EBB39E4C701}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{267B18AB-0486-4109-8B77-9335051DE28F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{267B18AB-0486-4109-8B77-9335051DE28F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{267B18AB-0486-4109-8B77-9335051DE28F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7E6F9DE-13FF-45D2-A616-9EBB39E4C701}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7E6F9DE-13FF-45D2-A616-9EBB39E4C701}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7E6F9DE-13FF-45D2-A616-9EBB39E4C701}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7E6F9DE-13FF-45D2-A616-9EBB39E4C701}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

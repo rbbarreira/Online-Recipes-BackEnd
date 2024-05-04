@@ -20,7 +20,7 @@ namespace Online_Recipes_Domain.Account
         [JsonIgnore]
         public ICollection<Recipe>? Recipes { get; set; }
 
-
+        // Metodo para combinar e criar Password
         public void CombinePassword(byte[] passwordHash, byte[] passwordSalt)
         {
             PasswordHash = passwordHash;

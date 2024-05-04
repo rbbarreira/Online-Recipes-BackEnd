@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using Online_Recipes_Domain.Account;
+using System.Text.Json.Serialization;
 
 namespace Online_Recipes_Domain.Models
 {
@@ -22,7 +23,7 @@ namespace Online_Recipes_Domain.Models
         // EF Relation
 
         [JsonIgnore]
-        //public ICollection<User>? Users { get; set; }
+        public ICollection<User>? Users { get; set; }
 
         public ICollection<Ingredient>? Ingredients { get; set; }
 

@@ -2,6 +2,7 @@
 
 namespace Online_Recipes_Domain.Account
 {
+    // Modelo usado só para o LOGIN
     public class Login
     {
         [Required]
