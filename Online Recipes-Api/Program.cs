@@ -3,6 +3,10 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Online_Recipes_Data.Context;
 using Online_Recipes_Data.Mappings;
+using Online_Recipes_Repository.Repo_Implementations;
+using Online_Recipes_Repository.Repo_Interfaces;
+using Online_Recipes_Service.Service_Implementations;
+using Online_Recipes_Service.Service_Interfaces;
 using Swashbuckle.AspNetCore.Filters;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -26,7 +30,17 @@ builder.Services.AddDbContext<ApplicationContext>(options =>
 //Add AutoMapper
 builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
 
+//Add Dependency Injection ( Services: interface => implementations )
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IRecipeService, RecipeService>();
+builder.Services.AddScoped<IIngredientService, IngredientService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
+//Add Dependency Injection ( Repository: interface => implementations ) 
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
+builder.Services.AddScoped<IIngredientRepository, IngredientRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 // Add authentication to Swagger UI
 builder.Services.AddSwaggerGen(options =>
