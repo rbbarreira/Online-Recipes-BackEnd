@@ -58,7 +58,7 @@ namespace Online_Recipes_Repository.Repo_Implementations
             return user;
         }
 
-        // Cria Password criando ligação ente passwordHash e passwordSalt
+        // Autentica o usuário verificando Email e a Password
         public async Task<bool> Authenticate(string email, string password)
         {
             var user = await _dbSet.Where(x => x.Email.ToLower() == email.ToLower()).FirstOrDefaultAsync();

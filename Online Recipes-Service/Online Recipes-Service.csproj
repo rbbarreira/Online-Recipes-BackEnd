@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Online Recipes-Domain\Online Recipes-Domain.csproj" />
+    <ProjectReference Include="..\Online-Recipes-Repository\Online-Recipes-Repository.csproj" />
   </ItemGroup>
 
 </Project>
