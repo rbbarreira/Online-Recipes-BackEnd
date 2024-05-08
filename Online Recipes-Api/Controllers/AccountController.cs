@@ -27,18 +27,19 @@ namespace Online_Recipes_Api.Controllers
             // Check Email
             if (await _userService.EmailExist(user.Email))
             {
-                return BadRequest(new { Message = "Email already exist!" });
+                return BadRequest(new { Result = "Error", Message = "Email already exist!" });
             }
 
             //Check Username
             if (await _userService.UsernameExist(user.UserName))
             {
-                return BadRequest(new { Message = "Username already exist!" });
+                return BadRequest(new { Result = "Error", Message = "Username already exist!" });
             }
 
             var create = await _userService.Add(user);
 
-            return Ok(create);
+            return Ok(new { Result = "Success",  Message = "Registration complete successfully" });
+            
         }
 
         [HttpPost("Login")]
@@ -65,7 +66,12 @@ namespace Online_Recipes_Api.Controllers
 
             var token = _userService.GenerateToken(user);
 
-            return Ok(token);
+            return new UserToken
+            {
+                Token = token,
+                UserName = user.UserName,
+                Role = user.Role
+            };
         }
     }
 }

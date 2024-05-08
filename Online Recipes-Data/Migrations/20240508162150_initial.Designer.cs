@@ -12,7 +12,7 @@ using Online_Recipes_Data.Context;
 namespace Online_Recipes_Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240504174625_initial")]
+    [Migration("20240508162150_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -920,7 +920,7 @@ namespace Online_Recipes_Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("PasswordHash")
                         .HasColumnType("varbinary(max)");
@@ -932,17 +932,9 @@ namespace Online_Recipes_Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Email")
-                        .IsUnique()
-                        .HasFilter("[Email] IS NOT NULL");
-
-                    b.HasIndex("UserName")
-                        .IsUnique()
-                        .HasFilter("[UserName] IS NOT NULL");
 
                     b.ToTable("Users");
                 });
@@ -1609,10 +1601,10 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 1,
                             CookingTime = 90,
-                            CreateDate = new DateTime(2024, 5, 4, 18, 46, 24, 996, DateTimeKind.Local).AddTicks(6339),
+                            CreateDate = new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2707),
                             Description = "Discover the authenticity of our pork Rojões with chestnuts. Enjoy irresistible flavors and gastronomic tradition, inspired by the richness of the Portuguese Mediterranean Diet!",
                             Difficulty = 0,
-                            ModifiedDate = new DateTime(2024, 5, 4, 18, 46, 24, 996, DateTimeKind.Local).AddTicks(6391),
+                            ModifiedDate = new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2756),
                             Name = "Pork rojões with chestnutts",
                             Photo = "/assets/Pork rojões with chestnuts.jpg"
                         },
@@ -1620,10 +1612,10 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 2,
                             CookingTime = 30,
-                            CreateDate = new DateTime(2024, 5, 4, 18, 46, 24, 996, DateTimeKind.Local).AddTicks(6397),
+                            CreateDate = new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2762),
                             Description = "In Viseu, to moralize the troops who were going through difficult times, instructions were given to reinforce their diet. From the barracks to the table, Viseu-style ranch was born, a dish that combines chickpeas, potatoes, vegetables, thick pasta and pork, veal and chicken.",
                             Difficulty = 1,
-                            ModifiedDate = new DateTime(2024, 5, 4, 18, 46, 24, 996, DateTimeKind.Local).AddTicks(6398),
+                            ModifiedDate = new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2764),
                             Name = "Viseu`s Ranch",
                             Photo = "/assets/Viseu Ranch.jpg"
                         },
@@ -1631,10 +1623,10 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 3,
                             CookingTime = 60,
-                            CreateDate = new DateTime(2024, 5, 4, 18, 46, 24, 996, DateTimeKind.Local).AddTicks(6401),
+                            CreateDate = new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2766),
                             Description = "Probably the best-known Madeiran dish outside the archipelago. Kebabs are usually accompanied with fried corn, a snack made with cooked corn flour, then cut into cubes and fried, which is almost as good as the kebab itself.",
                             Difficulty = 1,
-                            ModifiedDate = new DateTime(2024, 5, 4, 18, 46, 24, 996, DateTimeKind.Local).AddTicks(6402),
+                            ModifiedDate = new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2767),
                             Name = "Madeiran kebabs with fried corn",
                             Photo = "/assets/Madeiran kebabs with fried corn.jpg"
                         },
@@ -1642,10 +1634,10 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 4,
                             CookingTime = 60,
-                            CreateDate = new DateTime(2024, 5, 4, 18, 46, 24, 996, DateTimeKind.Local).AddTicks(6404),
+                            CreateDate = new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2769),
                             Description = "Fish pasta is a main course meal, but can be served as a starter for a lighter second course.",
                             Difficulty = 0,
-                            ModifiedDate = new DateTime(2024, 5, 4, 18, 46, 24, 996, DateTimeKind.Local).AddTicks(6405),
+                            ModifiedDate = new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2771),
                             Name = "Fish pasta",
                             Photo = "/assets/Fish pasta.jpg"
                         },
@@ -1653,10 +1645,10 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 5,
                             CookingTime = 45,
-                            CreateDate = new DateTime(2024, 5, 4, 18, 46, 24, 996, DateTimeKind.Local).AddTicks(6409),
+                            CreateDate = new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2773),
                             Description = "With cod, eggs and potatoes, this is one of the most popular recipes among the Portuguese. Easy and quick to make, you can easily adapt the method and try it with fish, shredded chicken or even leek.",
                             Difficulty = 1,
-                            ModifiedDate = new DateTime(2024, 5, 4, 18, 46, 24, 996, DateTimeKind.Local).AddTicks(6410),
+                            ModifiedDate = new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2774),
                             Name = "Cod fish à Brás",
                             Photo = "/assets/Cod fish à Brás.jpg"
                         },
@@ -1664,10 +1656,10 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 6,
                             CookingTime = 20,
-                            CreateDate = new DateTime(2024, 5, 4, 18, 46, 24, 996, DateTimeKind.Local).AddTicks(6412),
+                            CreateDate = new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2776),
                             Description = "Fruits such as orange, lemon or tangerine are popular in countless recipes. Prepare these sea bream fillets with orange sauce and make the most of the color and sweet flavor in a quick and healthy meal.",
                             Difficulty = 1,
-                            ModifiedDate = new DateTime(2024, 5, 4, 18, 46, 24, 996, DateTimeKind.Local).AddTicks(6413),
+                            ModifiedDate = new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2777),
                             Name = "Sea bream fillets with orange sauce",
                             Photo = "/assets/Sea bream fillets with orange sauce.jpg"
                         },
@@ -1675,10 +1667,10 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 7,
                             CookingTime = 30,
-                            CreateDate = new DateTime(2024, 5, 4, 18, 46, 24, 996, DateTimeKind.Local).AddTicks(6416),
+                            CreateDate = new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2779),
                             Description = "This risotto combines the traditional flavor of Azeitão cheese and the sweetness of pear, representing the gastronomic authenticity of Portugal, with Italian influences.",
                             Difficulty = 0,
-                            ModifiedDate = new DateTime(2024, 5, 4, 18, 46, 24, 996, DateTimeKind.Local).AddTicks(6417),
+                            ModifiedDate = new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2780),
                             Name = "Azeitão Cheese and pear risotto",
                             Photo = "/assets/Azeitão Cheese and pear risotto.jpg"
                         },
@@ -1686,10 +1678,10 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 8,
                             CookingTime = 60,
-                            CreateDate = new DateTime(2024, 5, 4, 18, 46, 24, 996, DateTimeKind.Local).AddTicks(6419),
+                            CreateDate = new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2782),
                             Description = "Try stuffed Portobello mushrooms for a balanced meal. Rich in nutrients and vegetable protein, they are ideal for vegetarian diets.",
                             Difficulty = 2,
-                            ModifiedDate = new DateTime(2024, 5, 4, 18, 46, 24, 996, DateTimeKind.Local).AddTicks(6421),
+                            ModifiedDate = new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2784),
                             Name = "Stuffed Portobello Mushrooms",
                             Photo = "/assets/Stuffed Portobello Mushrooms.jpg"
                         },
@@ -1697,10 +1689,10 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 9,
                             CookingTime = 25,
-                            CreateDate = new DateTime(2024, 5, 4, 18, 46, 24, 996, DateTimeKind.Local).AddTicks(6423),
+                            CreateDate = new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2785),
                             Description = "Use leftover carcasses (papos-secos) or mixed bread and prepare a delicious bread soup with coriander and egg. A typical Portuguese dish, vegetarian and without food waste.",
                             Difficulty = 0,
-                            ModifiedDate = new DateTime(2024, 5, 4, 18, 46, 24, 996, DateTimeKind.Local).AddTicks(6424),
+                            ModifiedDate = new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2787),
                             Name = "Açorda with coriander and egg",
                             Photo = "/assets/Açorda with coriander and egg.jpg"
                         });

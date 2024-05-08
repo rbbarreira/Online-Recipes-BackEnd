@@ -5,17 +5,17 @@ namespace Online_Recipes_Domain.Account
 {
     public class User : Entity
     {
-        public string? UserName { get; set; }
+        public string ?UserName { get; set; } = string.Empty;
 
-        public string? Email { get; set; }
-
-        [JsonIgnore]
-        public byte[]? PasswordHash { get; set; }
+        public string ?Email { get; set; } = string.Empty;
 
         [JsonIgnore]
-        public byte[]? PasswordSalt { get; set; }
+        public byte[] ?PasswordHash { get; set; }
 
-        public string? Role { get; set; }
+        [JsonIgnore]
+        public byte[] ?PasswordSalt { get; set; }
+
+        public string ?Role { get; set; } = string.Empty;
 
         [JsonIgnore]
         public ICollection<Recipe>? Recipes { get; set; }

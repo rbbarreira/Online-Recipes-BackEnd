@@ -17,9 +17,6 @@ namespace Online_Recipes_Data.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().HasIndex(a => a.UserName).IsUnique();
-            modelBuilder.Entity<User>().HasIndex(b => b.Email).IsUnique();
-
             // Para permitir NULL na tabela User, coluna Password
             modelBuilder.Entity<User>().Property(c => c.PasswordHash).IsRequired(false);
             modelBuilder.Entity<User>().Property(d => d.PasswordSalt).IsRequired(false);

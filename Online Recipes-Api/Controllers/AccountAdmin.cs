@@ -17,7 +17,7 @@ namespace Online_Recipes_Api.Controllers
         }
 
         [HttpGet]
-        [Route("List Users - Admin")]
+        [Route("List Users")]
         [Authorize(Roles = Role.Admin)]
         public async Task<ActionResult<List<User>>> GetUsers()
         {
@@ -44,7 +44,7 @@ namespace Online_Recipes_Api.Controllers
         [HttpPut]
         [Route("Update Role - Admin")]
         [Authorize(Roles = Role.Admin)]
-        public async Task<IActionResult> Update(string role, User user)
+        public async Task<IActionResult> Update(User user)
         {
             if (user.Id == null)
             {
@@ -52,7 +52,6 @@ namespace Online_Recipes_Api.Controllers
             }
             else
             {
-                user.Role = role;
                 await _userService.Update(user);
                 return Ok("Update successfully");
             }

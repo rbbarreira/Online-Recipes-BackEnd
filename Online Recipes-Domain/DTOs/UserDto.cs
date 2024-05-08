@@ -15,6 +15,13 @@ namespace Online_Recipes_Domain.DTOs
 
         [Required(ErrorMessage = "Password is required")]
         [NotMapped]
-        public string Password { get; set; } = string.Empty;
+        [DataType(DataType.Password)]
+        public string? Password { get; set; } = string.Empty;
+
+        [Required]
+        [NotMapped]
+        [DataType(DataType.Password)]
+        [Compare(nameof(Password))]
+        public string? ConfirmPassword { get; set; } = string.Empty;
     }
 }
