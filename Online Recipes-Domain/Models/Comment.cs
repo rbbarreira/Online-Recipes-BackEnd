@@ -7,6 +7,6 @@ namespace Online_Recipes_Domain.Models
         public string UsersComment { get; set; }
 
         [JsonIgnore]
-        public Recipe? Recipe { get; set; }
+        public ICollection<Recipe> ?Recipes { get; set; }
     }
 }

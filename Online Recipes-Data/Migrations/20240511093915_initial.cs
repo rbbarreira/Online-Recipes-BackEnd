@@ -27,6 +27,19 @@ namespace Online_Recipes_Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Comment",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UsersComment = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comment", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Ingredient_Quantity",
                 columns: table => new
                 {
@@ -164,22 +177,27 @@ namespace Online_Recipes_Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Comment",
+                name: "CommentRecipe",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UsersComment = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RecipeId = table.Column<int>(type: "int", nullable: true)
+                    CommentsId = table.Column<int>(type: "int", nullable: false),
+                    RecipesId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Comment", x => x.Id);
+                    table.PrimaryKey("PK_CommentRecipe", x => new { x.CommentsId, x.RecipesId });
                     table.ForeignKey(
-                        name: "FK_Comment_Recipes_RecipeId",
-                        column: x => x.RecipeId,
+                        name: "FK_CommentRecipe_Comment_CommentsId",
+                        column: x => x.CommentsId,
+                        principalTable: "Comment",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CommentRecipe_Recipes_RecipesId",
+                        column: x => x.RecipesId,
                         principalTable: "Recipes",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -438,15 +456,15 @@ namespace Online_Recipes_Data.Migrations
                 columns: new[] { "Id", "CookingTime", "CreateDate", "Description", "Difficulty", "ModifiedDate", "Name", "Photo" },
                 values: new object[,]
                 {
-                    { 1, 90, new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2707), "Discover the authenticity of our pork Rojões with chestnuts. Enjoy irresistible flavors and gastronomic tradition, inspired by the richness of the Portuguese Mediterranean Diet!", 0, new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2756), "Pork rojões with chestnutts", "/assets/Pork rojões with chestnuts.jpg" },
-                    { 2, 30, new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2762), "In Viseu, to moralize the troops who were going through difficult times, instructions were given to reinforce their diet. From the barracks to the table, Viseu-style ranch was born, a dish that combines chickpeas, potatoes, vegetables, thick pasta and pork, veal and chicken.", 1, new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2764), "Viseu`s Ranch", "/assets/Viseu Ranch.jpg" },
-                    { 3, 60, new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2766), "Probably the best-known Madeiran dish outside the archipelago. Kebabs are usually accompanied with fried corn, a snack made with cooked corn flour, then cut into cubes and fried, which is almost as good as the kebab itself.", 1, new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2767), "Madeiran kebabs with fried corn", "/assets/Madeiran kebabs with fried corn.jpg" },
-                    { 4, 60, new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2769), "Fish pasta is a main course meal, but can be served as a starter for a lighter second course.", 0, new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2771), "Fish pasta", "/assets/Fish pasta.jpg" },
-                    { 5, 45, new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2773), "With cod, eggs and potatoes, this is one of the most popular recipes among the Portuguese. Easy and quick to make, you can easily adapt the method and try it with fish, shredded chicken or even leek.", 1, new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2774), "Cod fish à Brás", "/assets/Cod fish à Brás.jpg" },
-                    { 6, 20, new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2776), "Fruits such as orange, lemon or tangerine are popular in countless recipes. Prepare these sea bream fillets with orange sauce and make the most of the color and sweet flavor in a quick and healthy meal.", 1, new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2777), "Sea bream fillets with orange sauce", "/assets/Sea bream fillets with orange sauce.jpg" },
-                    { 7, 30, new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2779), "This risotto combines the traditional flavor of Azeitão cheese and the sweetness of pear, representing the gastronomic authenticity of Portugal, with Italian influences.", 0, new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2780), "Azeitão Cheese and pear risotto", "/assets/Azeitão Cheese and pear risotto.jpg" },
-                    { 8, 60, new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2782), "Try stuffed Portobello mushrooms for a balanced meal. Rich in nutrients and vegetable protein, they are ideal for vegetarian diets.", 2, new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2784), "Stuffed Portobello Mushrooms", "/assets/Stuffed Portobello Mushrooms.jpg" },
-                    { 9, 25, new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2785), "Use leftover carcasses (papos-secos) or mixed bread and prepare a delicious bread soup with coriander and egg. A typical Portuguese dish, vegetarian and without food waste.", 0, new DateTime(2024, 5, 8, 17, 21, 50, 33, DateTimeKind.Local).AddTicks(2787), "Açorda with coriander and egg", "/assets/Açorda with coriander and egg.jpg" }
+                    { 1, 90, new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(5937), "Discover the authenticity of our pork Rojões with chestnuts. Enjoy irresistible flavors and gastronomic tradition, inspired by the richness of the Portuguese Mediterranean Diet!", 0, new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(5982), "Pork rojões with chestnutts", "/assets/Pork rojões with chestnuts.jpg" },
+                    { 2, 30, new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(5988), "In Viseu, to moralize the troops who were going through difficult times, instructions were given to reinforce their diet. From the barracks to the table, Viseu-style ranch was born, a dish that combines chickpeas, potatoes, vegetables, thick pasta and pork, veal and chicken.", 1, new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(5990), "Viseu`s Ranch", "/assets/Viseu Ranch.jpg" },
+                    { 3, 60, new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(5992), "Probably the best-known Madeiran dish outside the archipelago. Kebabs are usually accompanied with fried corn, a snack made with cooked corn flour, then cut into cubes and fried, which is almost as good as the kebab itself.", 1, new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(5994), "Madeiran kebabs with fried corn", "/assets/Madeiran kebabs with fried corn.jpg" },
+                    { 4, 60, new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(5996), "Fish pasta is a main course meal, but can be served as a starter for a lighter second course.", 0, new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(5997), "Fish pasta", "/assets/Fish pasta.jpg" },
+                    { 5, 45, new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(6048), "With cod, eggs and potatoes, this is one of the most popular recipes among the Portuguese. Easy and quick to make, you can easily adapt the method and try it with fish, shredded chicken or even leek.", 1, new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(6049), "Cod fish à Brás", "/assets/Cod fish à Brás.jpg" },
+                    { 6, 20, new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(6052), "Fruits such as orange, lemon or tangerine are popular in countless recipes. Prepare these sea bream fillets with orange sauce and make the most of the color and sweet flavor in a quick and healthy meal.", 1, new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(6053), "Sea bream fillets with orange sauce", "/assets/Sea bream fillets with orange sauce.jpg" },
+                    { 7, 30, new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(6055), "This risotto combines the traditional flavor of Azeitão cheese and the sweetness of pear, representing the gastronomic authenticity of Portugal, with Italian influences.", 0, new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(6056), "Azeitão Cheese and pear risotto", "/assets/Azeitão Cheese and pear risotto.jpg" },
+                    { 8, 60, new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(6058), "Try stuffed Portobello mushrooms for a balanced meal. Rich in nutrients and vegetable protein, they are ideal for vegetarian diets.", 2, new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(6060), "Stuffed Portobello Mushrooms", "/assets/Stuffed Portobello Mushrooms.jpg" },
+                    { 9, 25, new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(6061), "Use leftover carcasses (papos-secos) or mixed bread and prepare a delicious bread soup with coriander and egg. A typical Portuguese dish, vegetarian and without food waste.", 0, new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(6063), "Açorda with coriander and egg", "/assets/Açorda with coriander and egg.jpg" }
                 });
 
             migrationBuilder.InsertData(
@@ -672,9 +690,9 @@ namespace Online_Recipes_Data.Migrations
                 column: "CategoriesId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comment_RecipeId",
-                table: "Comment",
-                column: "RecipeId");
+                name: "IX_CommentRecipe_RecipesId",
+                table: "CommentRecipe",
+                column: "RecipesId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Ingredient_QuantityRecipe_RecipesId",
@@ -714,7 +732,7 @@ namespace Online_Recipes_Data.Migrations
                 name: "CategoryRecipe");
 
             migrationBuilder.DropTable(
-                name: "Comment");
+                name: "CommentRecipe");
 
             migrationBuilder.DropTable(
                 name: "Ingredient_QuantityRecipe");
@@ -736,6 +754,9 @@ namespace Online_Recipes_Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Category");
+
+            migrationBuilder.DropTable(
+                name: "Comment");
 
             migrationBuilder.DropTable(
                 name: "Ingredient_Quantity");

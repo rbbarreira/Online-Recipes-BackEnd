@@ -41,7 +41,7 @@ namespace Online_Recipes_Api.Controllers
         }
 
         [HttpPost]
-        [Route("Create Ingredient - Admin")]
+        [Route("Create Ingredient")]
         [Authorize(Roles = Role.Admin)]
         public async Task<IActionResult> Add(Ingredient ingredient)
         {
@@ -52,11 +52,11 @@ namespace Online_Recipes_Api.Controllers
                 return BadRequest("Error occour while creating!");
             }
 
-            return Ok("Create successfully");
+            return Ok(new { Result = "Success", Message = "Create successfully" });
         }
 
         [HttpPut]
-        [Route("Update Ingredient - Admin")]
+        [Route("Update Ingredient")]
         [Authorize(Roles = Role.Admin)]
         public async Task<IActionResult> Update(Ingredient ingredient)
         {
@@ -67,11 +67,11 @@ namespace Online_Recipes_Api.Controllers
                 return BadRequest("Error occour while updating!");
             }
 
-            return Ok("Update successfully");
+            return Ok(new { Result = "Success", Message = "Update successfully" });
         }
 
         [HttpDelete]
-        [Route("Delete By {id} - Admin")]
+        [Route("Delete By {id}")]
         [Authorize(Roles = Role.Admin)]
         public async Task<IActionResult> RemoveById(int id)
         {
@@ -84,7 +84,7 @@ namespace Online_Recipes_Api.Controllers
 
             await _ingredientService.RemoveById(id);
 
-            return Ok("Delete successfully");
+            return Ok(new { Result = "Success", Message = "Delete successfully" });
         }
     }
 }
