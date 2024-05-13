@@ -21,7 +21,7 @@ namespace Online_Recipes_Api.Controllers
         }
 
         [HttpGet]
-        [Route("List Recipe")]
+        [Route("List Recipes")]
         public async Task<ActionResult<List<Recipe>>> GetRecipes()
         {
             var recipe = await _recipeService.GetAll();
@@ -44,8 +44,8 @@ namespace Online_Recipes_Api.Controllers
         }
 
         [HttpPost]
-        [Route("Create Recipe - User")]
-        [Authorize(Roles = Role.Admin + "," + Role.User)]
+        [Route("Create Recipe")]
+        //[Authorize(Roles = Role.Admin + "," + Role.User)]
         public async Task<IActionResult> Add(Recipe recipe)
         {
             if (recipe == null)
@@ -55,12 +55,12 @@ namespace Online_Recipes_Api.Controllers
 
             await _recipeService.Add(recipe);
 
-            return Ok("Create successfully");
+            return Ok(new { Result = "Success", Message = "Create successfully" });            
         }
 
         [HttpPut]
-        [Route("Update Recipe - User")]
-        [Authorize(Roles = Role.Admin + "," + Role.User)]
+        [Route("Update Recipe")]
+        //[Authorize(Roles = Role.Admin + "," + Role.User)]
         public async Task<IActionResult> Update(Recipe recipe)
         {
             if (recipe.Id == 0)
@@ -70,12 +70,12 @@ namespace Online_Recipes_Api.Controllers
 
             await _recipeService.Update(recipe);
 
-            return Ok("Update successfully");
+            return Ok(new { Result = "Success", Message = "Update successfully" });
         }
 
         [HttpDelete]
-        [Route("Delete By {id} - Admin")]
-        [Authorize(Roles = Role.Admin)]
+        [Route("Delete By {id}")]
+        //[Authorize(Roles = Role.Admin)]
         public async Task<IActionResult> RemoveById(int id)
         {
             var recipe = await _recipeService.GetById(id);
@@ -86,7 +86,7 @@ namespace Online_Recipes_Api.Controllers
 
             await _recipeService.RemoveById(id);
 
-            return Ok("Delete successfully");
+            return Ok(new { Result = "Success", Message = "Delete successfully" });
         }
 
         [HttpGet]

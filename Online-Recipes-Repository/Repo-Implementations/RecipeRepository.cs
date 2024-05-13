@@ -44,11 +44,7 @@ namespace Online_Recipes_Repository.Repo_Implementations
 
         public async Task<List<Recipe>> GetAll()
         {
-            return await _dbSet.Include(a => a.Ingredients)
-                               .ThenInclude(b => b.Ingredient_Quantities)
-                               .Include(c => c.Preparations)
-                               .Include(b => b.Categories)
-                               .ToListAsync();
+            return await _dbSet.ToListAsync();
         }
 
         public async Task<Recipe> GetById(int id)

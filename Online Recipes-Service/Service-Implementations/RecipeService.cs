@@ -29,7 +29,7 @@ namespace Online_Recipes_Service.Service_Implementations
 
         public async Task<Recipe> Add(Recipe recipe)
         {
-            //Não repetir ingredientes
+            /* Não repetir ingredientes
             var fixed_ingredients = new List<Ingredient>();
 
             foreach (var ingredient in recipe.Ingredients)
@@ -56,13 +56,15 @@ namespace Online_Recipes_Service.Service_Implementations
                 else fixed_categories.Add(category);
             }
             recipe.Categories = fixed_categories;
+            */
+            
 
             return await _recipeRepository.Add(recipe);
         }
 
         public async Task<Recipe> Update(Recipe recipe)
         {
-            //Não repetir ingredientes
+            /*Não repetir ingredientes
             var fixed_ingredients = new List<Ingredient>();
 
             foreach (var ingredient in recipe.Ingredients)
@@ -89,6 +91,7 @@ namespace Online_Recipes_Service.Service_Implementations
                 else fixed_categories.Add(category);
             }
             recipe.Categories = fixed_categories;
+            */
 
             return await _recipeRepository.Update(recipe);
         }

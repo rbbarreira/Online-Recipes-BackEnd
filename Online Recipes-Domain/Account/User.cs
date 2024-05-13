@@ -9,10 +9,10 @@ namespace Online_Recipes_Domain.Account
 
         public string ?Email { get; set; } = string.Empty;
 
-        [JsonIgnore]
+       
         public byte[] ?PasswordHash { get; set; }
 
-        [JsonIgnore]
+        
         public byte[] ?PasswordSalt { get; set; }
 
         public string ?Role { get; set; } = string.Empty;
