@@ -29,7 +29,7 @@ namespace Online_Recipes_Service.Service_Implementations
 
         public async Task<Recipe> Add(Recipe recipe)
         {
-            /* Não repetir ingredientes
+            // Não repetir ingredientes
             var fixed_ingredients = new List<Ingredient>();
 
             foreach (var ingredient in recipe.Ingredients)
@@ -55,8 +55,7 @@ namespace Online_Recipes_Service.Service_Implementations
                 }
                 else fixed_categories.Add(category);
             }
-            recipe.Categories = fixed_categories;
-            */
+            recipe.Categories = fixed_categories;            
             
 
             return await _recipeRepository.Add(recipe);
@@ -64,7 +63,7 @@ namespace Online_Recipes_Service.Service_Implementations
 
         public async Task<Recipe> Update(Recipe recipe)
         {
-            /*Não repetir ingredientes
+            //Não repetir ingredientes
             var fixed_ingredients = new List<Ingredient>();
 
             foreach (var ingredient in recipe.Ingredients)
@@ -72,7 +71,7 @@ namespace Online_Recipes_Service.Service_Implementations
                 var existing = (await _ingredientRepository.GetIngredientByName(ingredient.Product)).FirstOrDefault();
                 if (existing != null)
                 {
-                    fixed_ingredients.Add(existing);
+                    //fixed_ingredients.Add(existing);
                 }
                 else fixed_ingredients.Add(ingredient);
             }
@@ -86,14 +85,15 @@ namespace Online_Recipes_Service.Service_Implementations
                 var existing = (await _categoryRepository.GetCategoryByName(category.Name)).FirstOrDefault();
                 if (existing != null)
                 {
-                    fixed_categories.Add(existing);
+                    //fixed_categories.Add(existing);
                 }
                 else fixed_categories.Add(category);
             }
-            recipe.Categories = fixed_categories;
-            */
+            recipe.Categories = fixed_categories;        
 
-            return await _recipeRepository.Update(recipe);
+            await _recipeRepository.Update(recipe);
+
+            return(recipe);
         }
 
         public async Task<Recipe> RemoveById(int id)

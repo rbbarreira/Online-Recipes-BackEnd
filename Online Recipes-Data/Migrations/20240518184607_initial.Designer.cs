@@ -12,7 +12,7 @@ using Online_Recipes_Data.Context;
 namespace Online_Recipes_Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240511093915_initial")]
+    [Migration("20240518184607_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -964,9 +964,12 @@ namespace Online_Recipes_Data.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("Category");
 
@@ -1015,9 +1018,12 @@ namespace Online_Recipes_Data.Migrations
 
                     b.Property<string>("Product")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Product")
+                        .IsUnique();
 
                     b.ToTable("Ingredients");
 
@@ -1075,7 +1081,7 @@ namespace Online_Recipes_Data.Migrations
                         new
                         {
                             Id = 11,
-                            Product = "Pepper"
+                            Product = "back pepper"
                         },
                         new
                         {
@@ -1494,47 +1500,317 @@ namespace Online_Recipes_Data.Migrations
                         new
                         {
                             Id = 1,
-                            Steps = "[\"Massage the meat with the pepper paste, add the bay leaf broken into pieces and drizzle with the juice of an orange.\",\"Cut the other orange into thick slices and then into pieces and mix it with the meat. Let marinate for at least 1 hour.\",\"Peel the chestnuts and set aside. Also peel the onions and cut them into half moons.\",\"Place the meat and marinade in a pan, add half the onion and olive oil. Mix well and cook, covered and over low heat, for around 50 minutes or until the meat is tender.\",\"Brown the remaining onion in a large frying pan with the remaining olive oil. Add the chestnuts and season with salt.\",\"Cut the courgette into sticks and the mushrooms in half and add them to the chestnuts. Sprinkle with a pinch of pepper, paprika and thyme.\",\"Cover the pan and let it cook gently for about 30 minutes. If necessary, spray with a little water. Mix with the meat and serve.\"]"
+                            Steps = "Massage the meat with the pepper paste, add the bay leaf broken into pieces and drizzle with the juice of an orange."
                         },
                         new
                         {
                             Id = 2,
-                            Steps = "[\"The day before, soak the grain in water.\",\"Before preparing, drain the grain and place it in a pan with plenty of water, seasoned with half the salt, along with the veal.\",\"When the grain starts to cook, add the bacon, chorizo, spare ribs and chicken and let it cook for around 1 hour.\",\"Remove the meat as soon as it is cooked. Add the peeled and diced potatoes, as well as the sliced \\u200B\\u200Bcarrots and striped cabbage. Add water so that the vegetables are covered.\",\"After 10 minutes, add the dough, season with the remaining salt and, if necessary, add a little more water.\",\"Cut the meat into pieces and return to the pan. Let it heat up and, before serving, sprinkle with cumin.\"]"
+                            Steps = "Cut the other orange into thick slices and then into pieces and mix it with the meat. Let marinate for at least 1 hour."
                         },
                         new
                         {
                             Id = 3,
-                            Steps = "[\"Pour the olive oil and finely grated or chopped garlic into a pan. Let it cook for a minute. Add the water and bring to a boil.\",\"Dissolve the flour in a little cold water and, when the water in the pan is boiling, add the flour and stir very well to make corn porridge.\",\"At the same time, add the cabbage. Season with salt and mix everything.\",\"Keep stirring to avoid lumps and let the flour cook over medium heat for about 5 minutes, being careful not to let it stick to the pan.\",\"When the dough has a solid consistency, turn off the heat, place it on a tray and let it cool. Place in the fridge to solidify, at least 3 hours.\",\"When the dough is cooked, heat the oil, cut the dough into sticks and fry until golden brown.\",\"Using a sharp knife, sharpen the ends of the bay leaves to create skewers.\",\"Thread the pieces of meat onto the skewers.\",\"Season the meat with salt and grill, turning it regularly. When cooked to taste, serve with fried corn sticks.\"]"
+                            Steps = "Peel the chestnuts and set aside. Also peel the onions and cut them into half moons."
                         },
                         new
                         {
                             Id = 4,
-                            Steps = "[\"In a pan, place the fish and cover with about a liter and a half of water. Add the salt and bring to the boil. Let it boil for 10 minutes and remove the fish with a slotted spoon. Add the shrimp shells and heads to the fish cooking broth and bring to a boil.\",\"Peel and chop the garlic cloves, peel the carrots and cut them into slices.\",\"In a pan, with the olive oil, saut\\u00E9 the chopped garlic cloves and, when they start to brown, the leek and chopped onion. Let cook until the vegetables are soft. Add the carrot slices, tomato and bay leaf. Cover and cook over low heat until the tomato is soft.\",\"Grind the shrimp shells and heads with a hand blender and strain the broth using a mesh strainer. Pour the broth over the stew and when it boils, add the pasta. Cover and let cook until al dente.\",\"Clean the fish of skin and bones and break it into large pieces. Add the fish and coriander to the pasta and serve immediately.\"]"
+                            Steps = "Place the meat and marinade in a pan, add half the onion and olive oil. Mix well and cook, covered and over low heat, for around 50 minutes or until the meat is tender."
                         },
                         new
                         {
                             Id = 5,
-                            Steps = "[\"Peel the potatoes and cut them into very thin sticks to obtain straw potatoes. Soak them in water for about half an hour to remove excess gum.\",\"Meanwhile, remove the skin and bones from the cod and shred it with your hands.\",\"Drain the potatoes and dry them well with a towel or kitchen paper. Fry them in the previously heated oil.\",\"Meanwhile, heat the oil in a frying pan and saut\\u00E9 the sliced \\u200B\\u200Bonion, peeled and cut into half moons, the garlic, peeled and chopped, and the bay leaf.\",\"When the onion and garlic start to soften, add the shredded cod and cover the pan.\",\"Cook over low heat until the cod turns white.\",\"Remove the bay leaf from the mixture and add the fries.\",\"Add the eggs, previously beaten, stir them gently, allowing them to coat all the ingredients. Don\\u0027t let the eggs cook and dry out too much.\",\"Before serving, sprinkle with chopped parsley and decorate with olives.\"]"
+                            Steps = "Brown the remaining onion in a large frying pan with the remaining olive oil. Add the chestnuts and season with salt."
                         },
                         new
                         {
                             Id = 6,
-                            Steps = "[\"Season the fillets with half the salt, pepper and chopped garlic.\",\"Heat half the olive oil in a non-stick frying pan and when it is hot, add the fillets and cook for 2 minutes on each side. Remove and reserve.\",\"Add the remaining olive oil, add the fennel and the juice and zest of an orange. Scrape the bottom with a wooden spoon.\",\"Add the segments of the other orange, the remaining salt and pepper.\",\"Return the fillets to the pan and cook for another 3 minutes.\"]"
+                            Steps = "Cut the courgette into sticks and the mushrooms in half and add them to the chestnuts. Sprinkle with a pinch of pepper, paprika and thyme."
                         },
                         new
                         {
                             Id = 7,
-                            Steps = "[\"Cut a pear with the skin into thin slices. Heat two tablespoons of butter in a frying pan and saut\\u00E9 the pear slices until golden or slightly caramelized. Reserve.\",\"Cut the remaining pears into small cubes, also with the skin on. Reserve.\",\"In a high frying pan, heat two tablespoons of butter, add the chopped onion and cook for 2 minutes. Add the rice and mix. Add the glass of wine and let it absorb.\",\"Then, add ladlefuls of broth (vegetable broth diluted in 1.5L of water), let it absorb completely until adding more broth again and stir constantly. Do this process for around 15 minutes.\",\"After 15 minutes, add the pear cubes and continue to stir.\",\"When the rice is cooked, add half of the Azeit\\u00E3o cheese paste, the remaining butter and mix.\",\"Distribute between four plates and place the remaining cheese paste and saut\\u00E9ed pear slices on top.\",\"Finish with thyme and pepper.\"]"
+                            Steps = "Cover the pan and let it cook gently for about 30 minutes. If necessary, spray with a little water. Mix with the meat and serve."
                         },
                         new
                         {
                             Id = 8,
-                            Steps = "[\"Preheat the oven to 180\\u00BAC. Clean the mushrooms with kitchen paper, remove the stems and, using a spoon, carefully excavate part of the pulp, without tearing the caps. Reserve the feet and pulp.\",\"Place the mushroom caps on a baking tray lined with baking paper and place \\u2154 of the pumpkin in slices about 5 mm thick next to them.\",\"Remove the fibrous base of the asparagus, cut off the spiked ends and add them to the tray. Reserve the rest.\",\"Sprinkle with the thyme, half the minced garlic and \\u00BD teaspoon of salt. Drizzle with a tablespoon of olive oil and place the tray in the oven for around 10 to 15 minutes.\",\"For the filling, heat 1 \\u00BD tablespoons of olive oil in a wide frying pan, add the onion and the remaining chopped garlic and let it brown. Add the mushroom stems and pulp and the finely chopped sun-dried tomato. Add the remaining asparagus cut into slices and the remaining diced pumpkin.\",\"Season with \\u00BD teaspoon of salt and saut\\u00E9 over medium to high heat, stirring frequently for about 5 minutes.\",\"Add the crumbled cornbread crumbs and cook for another 2 to 3 minutes.\",\"When cooked, remove the mushroom caps from the oven and divide the filling between them, distributing the cheese and almonds on top. Place back in the oven for another 10 to 15 minutes.\",\"Meanwhile, heat the remaining oil in a pan, add the rice and fry for about 1 minute, stirring frequently.\",\"Pour in boiling water, season with the remaining salt and cook covered for 15 minutes. When serving, sprinkle with chopped parsley.\"]"
+                            Steps = "The day before, soak the grain in water."
                         },
                         new
                         {
                             Id = 9,
-                            Steps = "[\"Tear the bread into pieces into a bowl, cover them with hot water and let the bread absorb.\",\"Crush the garlic cloves, with the skin, and brown them in the hot olive oil. Remove the skin from the garlic, add the tomato, cleaned of seeds and chopped into small cubes, and cook over low heat for about 5 minutes.\",\"Squeeze the bread, if necessary to remove excess water, and add it to the tomato. Keep stirring constantly, over the heat, until the bread is at the desired consistency.\",\"Mix the coriander into the mixture and place the bread in two bowls. Make some wells in the middle, add the egg yolks and mix quickly. Serve immediately.\"]"
+                            Steps = "Before preparing, drain the grain and place it in a pan with plenty of water, seasoned with half the salt, along with the veal."
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Steps = "When the grain starts to cook, add the bacon, chorizo, spare ribs and chicken and let it cook for around 1 hour."
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Steps = "Remove the meat as soon as it is cooked. Add the peeled and diced potatoes, as well as the sliced ​​carrots and striped cabbage. Add water so that the vegetables are covered."
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Steps = "After 10 minutes, add the dough, season with the remaining salt and, if necessary, add a little more water."
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Steps = "Cut the meat into pieces and return to the pan. Let it heat up and, before serving, sprinkle with cumin."
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Steps = "Pour the olive oil and finely grated or chopped garlic into a pan. Let it cook for a minute. Add the water and bring to a boil."
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Steps = "Dissolve the flour in a little cold water and, when the water in the pan is boiling, add the flour and stir very well to make corn porridge."
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Steps = "At the same time, add the cabbage. Season with salt and mix everything."
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Steps = "Keep stirring to avoid lumps and let the flour cook over medium heat for about 5 minutes, being careful not to let it stick to the pan."
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Steps = "When the dough has a solid consistency, turn off the heat, place it on a tray and let it cool. Place in the fridge to solidify, at least 3 hours."
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Steps = "When the dough is cooked, heat the oil, cut the dough into sticks and fry until golden brown."
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Steps = "Using a sharp knife, sharpen the ends of the bay leaves to create skewers."
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Steps = "Thread the pieces of meat onto the skewers."
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Steps = "Season the meat with salt and grill, turning it regularly. When cooked to taste, serve with fried corn sticks."
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Steps = "In a pan, place the fish and cover with about a liter and a half of water. Add the salt and bring to the boil. Let it boil for 10 minutes and remove the fish with a slotted spoon. Add the shrimp shells and heads to the fish cooking broth and bring to a boil."
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Steps = "Peel and chop the garlic cloves, peel the carrots and cut them into slices."
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Steps = "In a pan, with the olive oil, sauté the chopped garlic cloves and, when they start to brown, the leek and chopped onion. Let cook until the vegetables are soft. Add the carrot slices, tomato and bay leaf. Cover and cook over low heat until the tomato is soft."
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Steps = "Grind the shrimp shells and heads with a hand blender and strain the broth using a mesh strainer. Pour the broth over the stew and when it boils, add the pasta. Cover and let cook until al dente."
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Steps = "Clean the fish of skin and bones and break it into large pieces. Add the fish and coriander to the pasta and serve immediately."
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Steps = "Peel the potatoes and cut them into very thin sticks to obtain straw potatoes. Soak them in water for about half an hour to remove excess gum."
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Steps = "Meanwhile, remove the skin and bones from the cod and shred it with your hands."
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Steps = "Drain the potatoes and dry them well with a towel or kitchen paper. Fry them in the previously heated oil."
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Steps = "Meanwhile, heat the oil in a frying pan and sauté the sliced ​​onion, peeled and cut into half moons, the garlic, peeled and chopped, and the bay leaf."
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Steps = "When the onion and garlic start to soften, add the shredded cod and cover the pan."
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Steps = "Cook over low heat until the cod turns white."
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Steps = "Remove the bay leaf from the mixture and add the fries."
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Steps = "Add the eggs, previously beaten, stir them gently, allowing them to coat all the ingredients. Don't let the eggs cook and dry out too much."
+                        },
+                        new
+                        {
+                            Id = 36,
+                            Steps = "Before serving, sprinkle with chopped parsley and decorate with olives."
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Steps = "Season the fillets with half the salt, pepper and chopped garlic."
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Steps = "Heat half the olive oil in a non-stick frying pan and when it is hot, add the fillets and cook for 2 minutes on each side. Remove and reserve."
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Steps = "Add the remaining olive oil, add the fennel and the juice and zest of an orange. Scrape the bottom with a wooden spoon."
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Steps = "Add the segments of the other orange, the remaining salt and pepper."
+                        },
+                        new
+                        {
+                            Id = 41,
+                            Steps = "Return the fillets to the pan and cook for another 3 minutes."
+                        },
+                        new
+                        {
+                            Id = 42,
+                            Steps = "Cut a pear with the skin into thin slices. Heat two tablespoons of butter in a frying pan and sauté the pear slices until golden or slightly caramelized. Reserve."
+                        },
+                        new
+                        {
+                            Id = 43,
+                            Steps = "Cut the remaining pears into small cubes, also with the skin on. Reserve."
+                        },
+                        new
+                        {
+                            Id = 44,
+                            Steps = "In a high frying pan, heat two tablespoons of butter, add the chopped onion and cook for 2 minutes. Add the rice and mix. Add the glass of wine and let it absorb."
+                        },
+                        new
+                        {
+                            Id = 45,
+                            Steps = "Then, add ladlefuls of broth (vegetable broth diluted in 1.5L of water), let it absorb completely until adding more broth again and stir constantly. Do this process for around 15 minutes."
+                        },
+                        new
+                        {
+                            Id = 46,
+                            Steps = "After 15 minutes, add the pear cubes and continue to stir."
+                        },
+                        new
+                        {
+                            Id = 47,
+                            Steps = "When the rice is cooked, add half of the Azeitão cheese paste, the remaining butter and mix."
+                        },
+                        new
+                        {
+                            Id = 48,
+                            Steps = "Distribute between four plates and place the remaining cheese paste and sautéed pear slices on top."
+                        },
+                        new
+                        {
+                            Id = 49,
+                            Steps = "Finish with thyme and pepper."
+                        },
+                        new
+                        {
+                            Id = 50,
+                            Steps = "Preheat the oven to 180ºC. Clean the mushrooms with kitchen paper, remove the stems and, using a spoon, carefully excavate part of the pulp, without tearing the caps. Reserve the feet and pulp."
+                        },
+                        new
+                        {
+                            Id = 51,
+                            Steps = "Place the mushroom caps on a baking tray lined with baking paper and place ⅔ of the pumpkin in slices about 5 mm thick next to them."
+                        },
+                        new
+                        {
+                            Id = 52,
+                            Steps = "Remove the fibrous base of the asparagus, cut off the spiked ends and add them to the tray. Reserve the rest."
+                        },
+                        new
+                        {
+                            Id = 53,
+                            Steps = "Sprinkle with the thyme, half the minced garlic and ½ teaspoon of salt. Drizzle with a tablespoon of olive oil and place the tray in the oven for around 10 to 15 minutes."
+                        },
+                        new
+                        {
+                            Id = 54,
+                            Steps = "For the filling, heat 1 ½ tablespoons of olive oil in a wide frying pan, add the onion and the remaining chopped garlic and let it brown. Add the mushroom stems and pulp and the finely chopped sun-dried tomato. Add the remaining asparagus cut into slices and the remaining diced pumpkin."
+                        },
+                        new
+                        {
+                            Id = 55,
+                            Steps = "Season with ½ teaspoon of salt and sauté over medium to high heat, stirring frequently for about 5 minutes."
+                        },
+                        new
+                        {
+                            Id = 56,
+                            Steps = "Add the crumbled cornbread crumbs and cook for another 2 to 3 minutes."
+                        },
+                        new
+                        {
+                            Id = 57,
+                            Steps = "When cooked, remove the mushroom caps from the oven and divide the filling between them, distributing the cheese and almonds on top. Place back in the oven for another 10 to 15 minutes."
+                        },
+                        new
+                        {
+                            Id = 58,
+                            Steps = "Meanwhile, heat the remaining oil in a pan, add the rice and fry for about 1 minute, stirring frequently."
+                        },
+                        new
+                        {
+                            Id = 59,
+                            Steps = "Pour in boiling water, season with the remaining salt and cook covered for 15 minutes. When serving, sprinkle with chopped parsley."
+                        },
+                        new
+                        {
+                            Id = 60,
+                            Steps = "Tear the bread into pieces into a bowl, cover them with hot water and let the bread absorb."
+                        },
+                        new
+                        {
+                            Id = 61,
+                            Steps = "Crush the garlic cloves, with the skin, and brown them in the hot olive oil. Remove the skin from the garlic, add the tomato, cleaned of seeds and chopped into small cubes, and cook over low heat for about 5 minutes."
+                        },
+                        new
+                        {
+                            Id = 62,
+                            Steps = "Squeeze the bread, if necessary to remove excess water, and add it to the tomato. Keep stirring constantly, over the heat, until the bread is at the desired consistency."
+                        },
+                        new
+                        {
+                            Id = 63,
+                            Steps = "Mix the coriander into the mixture and place the bread in two bowls. Make some wells in the middle, add the egg yolks and mix quickly. Serve immediately."
                         });
                 });
 
@@ -1592,6 +1868,10 @@ namespace Online_Recipes_Data.Migrations
                     b.Property<int>("Difficulty")
                         .HasColumnType("int");
 
+                    b.Property<string>("IsApproved")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
 
@@ -1611,10 +1891,11 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 1,
                             CookingTime = 90,
-                            CreateDate = new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(5937),
+                            CreateDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5668),
                             Description = "Discover the authenticity of our pork Rojões with chestnuts. Enjoy irresistible flavors and gastronomic tradition, inspired by the richness of the Portuguese Mediterranean Diet!",
                             Difficulty = 0,
-                            ModifiedDate = new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(5982),
+                            IsApproved = "true",
+                            ModifiedDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5717),
                             Name = "Pork rojões with chestnutts",
                             Photo = "/assets/Pork rojões with chestnuts.jpg"
                         },
@@ -1622,10 +1903,11 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 2,
                             CookingTime = 30,
-                            CreateDate = new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(5988),
+                            CreateDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5723),
                             Description = "In Viseu, to moralize the troops who were going through difficult times, instructions were given to reinforce their diet. From the barracks to the table, Viseu-style ranch was born, a dish that combines chickpeas, potatoes, vegetables, thick pasta and pork, veal and chicken.",
                             Difficulty = 1,
-                            ModifiedDate = new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(5990),
+                            IsApproved = "true",
+                            ModifiedDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5724),
                             Name = "Viseu`s Ranch",
                             Photo = "/assets/Viseu Ranch.jpg"
                         },
@@ -1633,10 +1915,11 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 3,
                             CookingTime = 60,
-                            CreateDate = new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(5992),
+                            CreateDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5727),
                             Description = "Probably the best-known Madeiran dish outside the archipelago. Kebabs are usually accompanied with fried corn, a snack made with cooked corn flour, then cut into cubes and fried, which is almost as good as the kebab itself.",
                             Difficulty = 1,
-                            ModifiedDate = new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(5994),
+                            IsApproved = "true",
+                            ModifiedDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5728),
                             Name = "Madeiran kebabs with fried corn",
                             Photo = "/assets/Madeiran kebabs with fried corn.jpg"
                         },
@@ -1644,10 +1927,11 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 4,
                             CookingTime = 60,
-                            CreateDate = new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(5996),
+                            CreateDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5730),
                             Description = "Fish pasta is a main course meal, but can be served as a starter for a lighter second course.",
                             Difficulty = 0,
-                            ModifiedDate = new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(5997),
+                            IsApproved = "true",
+                            ModifiedDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5731),
                             Name = "Fish pasta",
                             Photo = "/assets/Fish pasta.jpg"
                         },
@@ -1655,10 +1939,11 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 5,
                             CookingTime = 45,
-                            CreateDate = new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(6048),
+                            CreateDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5733),
                             Description = "With cod, eggs and potatoes, this is one of the most popular recipes among the Portuguese. Easy and quick to make, you can easily adapt the method and try it with fish, shredded chicken or even leek.",
                             Difficulty = 1,
-                            ModifiedDate = new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(6049),
+                            IsApproved = "true",
+                            ModifiedDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5734),
                             Name = "Cod fish à Brás",
                             Photo = "/assets/Cod fish à Brás.jpg"
                         },
@@ -1666,10 +1951,11 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 6,
                             CookingTime = 20,
-                            CreateDate = new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(6052),
+                            CreateDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5736),
                             Description = "Fruits such as orange, lemon or tangerine are popular in countless recipes. Prepare these sea bream fillets with orange sauce and make the most of the color and sweet flavor in a quick and healthy meal.",
                             Difficulty = 1,
-                            ModifiedDate = new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(6053),
+                            IsApproved = "true",
+                            ModifiedDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5738),
                             Name = "Sea bream fillets with orange sauce",
                             Photo = "/assets/Sea bream fillets with orange sauce.jpg"
                         },
@@ -1677,10 +1963,11 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 7,
                             CookingTime = 30,
-                            CreateDate = new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(6055),
+                            CreateDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5740),
                             Description = "This risotto combines the traditional flavor of Azeitão cheese and the sweetness of pear, representing the gastronomic authenticity of Portugal, with Italian influences.",
                             Difficulty = 0,
-                            ModifiedDate = new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(6056),
+                            IsApproved = "true",
+                            ModifiedDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5741),
                             Name = "Azeitão Cheese and pear risotto",
                             Photo = "/assets/Azeitão Cheese and pear risotto.jpg"
                         },
@@ -1688,10 +1975,11 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 8,
                             CookingTime = 60,
-                            CreateDate = new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(6058),
+                            CreateDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5743),
                             Description = "Try stuffed Portobello mushrooms for a balanced meal. Rich in nutrients and vegetable protein, they are ideal for vegetarian diets.",
                             Difficulty = 2,
-                            ModifiedDate = new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(6060),
+                            IsApproved = "true",
+                            ModifiedDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5744),
                             Name = "Stuffed Portobello Mushrooms",
                             Photo = "/assets/Stuffed Portobello Mushrooms.jpg"
                         },
@@ -1699,10 +1987,11 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 9,
                             CookingTime = 25,
-                            CreateDate = new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(6061),
+                            CreateDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5746),
                             Description = "Use leftover carcasses (papos-secos) or mixed bread and prepare a delicious bread soup with coriander and egg. A typical Portuguese dish, vegetarian and without food waste.",
                             Difficulty = 0,
-                            ModifiedDate = new DateTime(2024, 5, 11, 10, 39, 14, 917, DateTimeKind.Local).AddTicks(6063),
+                            IsApproved = "true",
+                            ModifiedDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5747),
                             Name = "Açorda with coriander and egg",
                             Photo = "/assets/Açorda with coriander and egg.jpg"
                         });
@@ -1730,43 +2019,313 @@ namespace Online_Recipes_Data.Migrations
                         },
                         new
                         {
-                            RecipesId = 2,
+                            RecipesId = 1,
                             PreparationsId = 2
                         },
                         new
                         {
-                            RecipesId = 3,
+                            RecipesId = 1,
                             PreparationsId = 3
                         },
                         new
                         {
-                            RecipesId = 4,
+                            RecipesId = 1,
                             PreparationsId = 4
                         },
                         new
                         {
-                            RecipesId = 5,
+                            RecipesId = 1,
                             PreparationsId = 5
                         },
                         new
                         {
-                            RecipesId = 6,
+                            RecipesId = 1,
                             PreparationsId = 6
                         },
                         new
                         {
-                            RecipesId = 7,
+                            RecipesId = 1,
                             PreparationsId = 7
                         },
                         new
                         {
-                            RecipesId = 8,
+                            RecipesId = 2,
                             PreparationsId = 8
                         },
                         new
                         {
-                            RecipesId = 9,
+                            RecipesId = 2,
                             PreparationsId = 9
+                        },
+                        new
+                        {
+                            RecipesId = 2,
+                            PreparationsId = 10
+                        },
+                        new
+                        {
+                            RecipesId = 2,
+                            PreparationsId = 11
+                        },
+                        new
+                        {
+                            RecipesId = 2,
+                            PreparationsId = 12
+                        },
+                        new
+                        {
+                            RecipesId = 2,
+                            PreparationsId = 13
+                        },
+                        new
+                        {
+                            RecipesId = 3,
+                            PreparationsId = 14
+                        },
+                        new
+                        {
+                            RecipesId = 3,
+                            PreparationsId = 15
+                        },
+                        new
+                        {
+                            RecipesId = 3,
+                            PreparationsId = 16
+                        },
+                        new
+                        {
+                            RecipesId = 3,
+                            PreparationsId = 17
+                        },
+                        new
+                        {
+                            RecipesId = 3,
+                            PreparationsId = 18
+                        },
+                        new
+                        {
+                            RecipesId = 3,
+                            PreparationsId = 19
+                        },
+                        new
+                        {
+                            RecipesId = 3,
+                            PreparationsId = 20
+                        },
+                        new
+                        {
+                            RecipesId = 3,
+                            PreparationsId = 21
+                        },
+                        new
+                        {
+                            RecipesId = 3,
+                            PreparationsId = 22
+                        },
+                        new
+                        {
+                            RecipesId = 4,
+                            PreparationsId = 23
+                        },
+                        new
+                        {
+                            RecipesId = 4,
+                            PreparationsId = 24
+                        },
+                        new
+                        {
+                            RecipesId = 4,
+                            PreparationsId = 25
+                        },
+                        new
+                        {
+                            RecipesId = 4,
+                            PreparationsId = 26
+                        },
+                        new
+                        {
+                            RecipesId = 4,
+                            PreparationsId = 27
+                        },
+                        new
+                        {
+                            RecipesId = 5,
+                            PreparationsId = 28
+                        },
+                        new
+                        {
+                            RecipesId = 5,
+                            PreparationsId = 29
+                        },
+                        new
+                        {
+                            RecipesId = 5,
+                            PreparationsId = 30
+                        },
+                        new
+                        {
+                            RecipesId = 5,
+                            PreparationsId = 31
+                        },
+                        new
+                        {
+                            RecipesId = 5,
+                            PreparationsId = 32
+                        },
+                        new
+                        {
+                            RecipesId = 5,
+                            PreparationsId = 33
+                        },
+                        new
+                        {
+                            RecipesId = 5,
+                            PreparationsId = 34
+                        },
+                        new
+                        {
+                            RecipesId = 5,
+                            PreparationsId = 35
+                        },
+                        new
+                        {
+                            RecipesId = 5,
+                            PreparationsId = 36
+                        },
+                        new
+                        {
+                            RecipesId = 6,
+                            PreparationsId = 37
+                        },
+                        new
+                        {
+                            RecipesId = 6,
+                            PreparationsId = 38
+                        },
+                        new
+                        {
+                            RecipesId = 6,
+                            PreparationsId = 39
+                        },
+                        new
+                        {
+                            RecipesId = 6,
+                            PreparationsId = 40
+                        },
+                        new
+                        {
+                            RecipesId = 6,
+                            PreparationsId = 41
+                        },
+                        new
+                        {
+                            RecipesId = 7,
+                            PreparationsId = 42
+                        },
+                        new
+                        {
+                            RecipesId = 7,
+                            PreparationsId = 43
+                        },
+                        new
+                        {
+                            RecipesId = 7,
+                            PreparationsId = 44
+                        },
+                        new
+                        {
+                            RecipesId = 7,
+                            PreparationsId = 45
+                        },
+                        new
+                        {
+                            RecipesId = 7,
+                            PreparationsId = 46
+                        },
+                        new
+                        {
+                            RecipesId = 7,
+                            PreparationsId = 47
+                        },
+                        new
+                        {
+                            RecipesId = 7,
+                            PreparationsId = 48
+                        },
+                        new
+                        {
+                            RecipesId = 7,
+                            PreparationsId = 49
+                        },
+                        new
+                        {
+                            RecipesId = 8,
+                            PreparationsId = 50
+                        },
+                        new
+                        {
+                            RecipesId = 8,
+                            PreparationsId = 51
+                        },
+                        new
+                        {
+                            RecipesId = 8,
+                            PreparationsId = 52
+                        },
+                        new
+                        {
+                            RecipesId = 8,
+                            PreparationsId = 53
+                        },
+                        new
+                        {
+                            RecipesId = 8,
+                            PreparationsId = 54
+                        },
+                        new
+                        {
+                            RecipesId = 8,
+                            PreparationsId = 55
+                        },
+                        new
+                        {
+                            RecipesId = 8,
+                            PreparationsId = 56
+                        },
+                        new
+                        {
+                            RecipesId = 8,
+                            PreparationsId = 57
+                        },
+                        new
+                        {
+                            RecipesId = 8,
+                            PreparationsId = 58
+                        },
+                        new
+                        {
+                            RecipesId = 8,
+                            PreparationsId = 59
+                        },
+                        new
+                        {
+                            RecipesId = 9,
+                            PreparationsId = 60
+                        },
+                        new
+                        {
+                            RecipesId = 9,
+                            PreparationsId = 61
+                        },
+                        new
+                        {
+                            RecipesId = 9,
+                            PreparationsId = 62
+                        },
+                        new
+                        {
+                            RecipesId = 9,
+                            PreparationsId = 63
                         });
                 });
 

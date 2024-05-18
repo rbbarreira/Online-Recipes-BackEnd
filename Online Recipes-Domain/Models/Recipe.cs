@@ -19,6 +19,8 @@ namespace Online_Recipes_Domain.Models
 
         public DateTime ModifiedDate { get; set; } = DateTime.Now;
 
+        public string IsApproved { get; set; } = "false";
+
 
         // EF Relation
 

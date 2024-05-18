@@ -97,7 +97,7 @@ namespace Online_Recipes_Repository.Repo_Implementations
 
             var token = new JwtSecurityToken(
                     claims: claims,
-                    expires: DateTime.Now.AddDays(1),
+                    expires: DateTime.Now.AddMinutes(60),
                     signingCredentials: credentials
                 );
 

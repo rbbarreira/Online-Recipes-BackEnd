@@ -21,6 +21,10 @@ namespace Online_Recipes_Data.Context
             modelBuilder.Entity<User>().Property(c => c.PasswordHash).IsRequired(false);
             modelBuilder.Entity<User>().Property(d => d.PasswordSalt).IsRequired(false);
 
+            modelBuilder.Entity<Ingredient>().HasIndex(i => i.Product).IsUnique();
+
+            modelBuilder.Entity<Category>().HasIndex(c => c.Name).IsUnique();
+
             // Implementar dados na Base de Dados nas diferentes Tabelas
             modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
 

@@ -61,9 +61,7 @@ namespace Online_Recipes_Repository.Repo_Implementations
         //Atualiza a Receita bem com Ingrediente e Categoria quando inserido na receita
         public async Task Update(Recipe recipe)
         {
-            Recipe exist = _applicationContext.Recipes
-                .Include(a => a.Categories)
-                .Include(b => b.Ingredients)
+            Recipe exist = _applicationContext.Recipes               
                 .Single(c => c.Id == recipe.Id);
 
             _applicationContext.Entry(exist).CurrentValues.SetValues(recipe);
@@ -74,7 +72,7 @@ namespace Online_Recipes_Repository.Repo_Implementations
             exist.Categories.Clear();
             foreach (var c in recipe.Categories) exist.Categories.Add(c);
 
-            _applicationContext.Recipes.Update(exist);
+            _dbSet.Update(exist);
             await SaveChanges();
         }
     }

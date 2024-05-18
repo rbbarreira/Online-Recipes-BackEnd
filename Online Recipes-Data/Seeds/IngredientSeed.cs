@@ -15,7 +15,7 @@ namespace Online_Recipes_Data.Seeds
                   new Ingredient { Id = 5, Product = "Brunette" }, new Ingredient { Id = 6, Product = "onion" },
                   new Ingredient { Id = 7, Product = "Olive oil" }, new Ingredient { Id = 8, Product = "Shall" },
                   new Ingredient { Id = 9, Product = "Curget" }, new Ingredient { Id = 10, Product = "Mushroom" },
-                  new Ingredient { Id = 11, Product = "Pepper" }, new Ingredient { Id = 12, Product = "Sweet chili" },
+                  new Ingredient { Id = 11, Product = "back pepper" }, new Ingredient { Id = 12, Product = "Sweet chili" },
                   new Ingredient { Id = 13, Product = "Dried thyme" }, new Ingredient { Id = 14, Product = "chickpea" },
                   new Ingredient { Id = 15, Product = "salt" }, new Ingredient { Id = 16, Product = "veal" },
                   new Ingredient { Id = 17, Product = "bacon" }, new Ingredient { Id = 18, Product = "meat sausage" },

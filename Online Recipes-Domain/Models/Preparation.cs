@@ -4,9 +4,9 @@ namespace Online_Recipes_Domain.Models
 {
     public class Preparation : Entity
     {
-        public string[] Steps { get; set; }
+        public string Steps { get; set; }
 
         [JsonIgnore]
-        public ICollection<Recipe> ?Recipes { get; set; }
+        public ICollection<Recipe>? Recipes { get; set; }
     }
 }
