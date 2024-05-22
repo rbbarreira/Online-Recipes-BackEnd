@@ -1888,11 +1888,11 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 1,
                             CookingTime = 90,
-                            CreateDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5668),
+                            CreateDate = new DateTime(2024, 5, 20, 21, 4, 54, 624, DateTimeKind.Local).AddTicks(1159),
                             Description = "Discover the authenticity of our pork Rojões with chestnuts. Enjoy irresistible flavors and gastronomic tradition, inspired by the richness of the Portuguese Mediterranean Diet!",
                             Difficulty = 0,
                             IsApproved = "true",
-                            ModifiedDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5717),
+                            ModifiedDate = new DateTime(2024, 5, 20, 21, 4, 54, 624, DateTimeKind.Local).AddTicks(1211),
                             Name = "Pork rojões with chestnutts",
                             Photo = "/assets/Pork rojões with chestnuts.jpg"
                         },
@@ -1900,11 +1900,11 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 2,
                             CookingTime = 30,
-                            CreateDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5723),
+                            CreateDate = new DateTime(2024, 5, 20, 21, 4, 54, 624, DateTimeKind.Local).AddTicks(1216),
                             Description = "In Viseu, to moralize the troops who were going through difficult times, instructions were given to reinforce their diet. From the barracks to the table, Viseu-style ranch was born, a dish that combines chickpeas, potatoes, vegetables, thick pasta and pork, veal and chicken.",
                             Difficulty = 1,
                             IsApproved = "true",
-                            ModifiedDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5724),
+                            ModifiedDate = new DateTime(2024, 5, 20, 21, 4, 54, 624, DateTimeKind.Local).AddTicks(1218),
                             Name = "Viseu`s Ranch",
                             Photo = "/assets/Viseu Ranch.jpg"
                         },
@@ -1912,11 +1912,11 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 3,
                             CookingTime = 60,
-                            CreateDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5727),
+                            CreateDate = new DateTime(2024, 5, 20, 21, 4, 54, 624, DateTimeKind.Local).AddTicks(1220),
                             Description = "Probably the best-known Madeiran dish outside the archipelago. Kebabs are usually accompanied with fried corn, a snack made with cooked corn flour, then cut into cubes and fried, which is almost as good as the kebab itself.",
                             Difficulty = 1,
                             IsApproved = "true",
-                            ModifiedDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5728),
+                            ModifiedDate = new DateTime(2024, 5, 20, 21, 4, 54, 624, DateTimeKind.Local).AddTicks(1221),
                             Name = "Madeiran kebabs with fried corn",
                             Photo = "/assets/Madeiran kebabs with fried corn.jpg"
                         },
@@ -1924,11 +1924,11 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 4,
                             CookingTime = 60,
-                            CreateDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5730),
+                            CreateDate = new DateTime(2024, 5, 20, 21, 4, 54, 624, DateTimeKind.Local).AddTicks(1224),
                             Description = "Fish pasta is a main course meal, but can be served as a starter for a lighter second course.",
                             Difficulty = 0,
                             IsApproved = "true",
-                            ModifiedDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5731),
+                            ModifiedDate = new DateTime(2024, 5, 20, 21, 4, 54, 624, DateTimeKind.Local).AddTicks(1225),
                             Name = "Fish pasta",
                             Photo = "/assets/Fish pasta.jpg"
                         },
@@ -1936,11 +1936,11 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 5,
                             CookingTime = 45,
-                            CreateDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5733),
+                            CreateDate = new DateTime(2024, 5, 20, 21, 4, 54, 624, DateTimeKind.Local).AddTicks(1227),
                             Description = "With cod, eggs and potatoes, this is one of the most popular recipes among the Portuguese. Easy and quick to make, you can easily adapt the method and try it with fish, shredded chicken or even leek.",
                             Difficulty = 1,
                             IsApproved = "true",
-                            ModifiedDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5734),
+                            ModifiedDate = new DateTime(2024, 5, 20, 21, 4, 54, 624, DateTimeKind.Local).AddTicks(1228),
                             Name = "Cod fish à Brás",
                             Photo = "/assets/Cod fish à Brás.jpg"
                         },
@@ -1948,11 +1948,11 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 6,
                             CookingTime = 20,
-                            CreateDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5736),
+                            CreateDate = new DateTime(2024, 5, 20, 21, 4, 54, 624, DateTimeKind.Local).AddTicks(1230),
                             Description = "Fruits such as orange, lemon or tangerine are popular in countless recipes. Prepare these sea bream fillets with orange sauce and make the most of the color and sweet flavor in a quick and healthy meal.",
                             Difficulty = 1,
                             IsApproved = "true",
-                            ModifiedDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5738),
+                            ModifiedDate = new DateTime(2024, 5, 20, 21, 4, 54, 624, DateTimeKind.Local).AddTicks(1231),
                             Name = "Sea bream fillets with orange sauce",
                             Photo = "/assets/Sea bream fillets with orange sauce.jpg"
                         },
@@ -1960,11 +1960,11 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 7,
                             CookingTime = 30,
-                            CreateDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5740),
+                            CreateDate = new DateTime(2024, 5, 20, 21, 4, 54, 624, DateTimeKind.Local).AddTicks(1233),
                             Description = "This risotto combines the traditional flavor of Azeitão cheese and the sweetness of pear, representing the gastronomic authenticity of Portugal, with Italian influences.",
                             Difficulty = 0,
                             IsApproved = "true",
-                            ModifiedDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5741),
+                            ModifiedDate = new DateTime(2024, 5, 20, 21, 4, 54, 624, DateTimeKind.Local).AddTicks(1234),
                             Name = "Azeitão Cheese and pear risotto",
                             Photo = "/assets/Azeitão Cheese and pear risotto.jpg"
                         },
@@ -1972,11 +1972,11 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 8,
                             CookingTime = 60,
-                            CreateDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5743),
+                            CreateDate = new DateTime(2024, 5, 20, 21, 4, 54, 624, DateTimeKind.Local).AddTicks(1236),
                             Description = "Try stuffed Portobello mushrooms for a balanced meal. Rich in nutrients and vegetable protein, they are ideal for vegetarian diets.",
                             Difficulty = 2,
                             IsApproved = "true",
-                            ModifiedDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5744),
+                            ModifiedDate = new DateTime(2024, 5, 20, 21, 4, 54, 624, DateTimeKind.Local).AddTicks(1238),
                             Name = "Stuffed Portobello Mushrooms",
                             Photo = "/assets/Stuffed Portobello Mushrooms.jpg"
                         },
@@ -1984,11 +1984,11 @@ namespace Online_Recipes_Data.Migrations
                         {
                             Id = 9,
                             CookingTime = 25,
-                            CreateDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5746),
+                            CreateDate = new DateTime(2024, 5, 20, 21, 4, 54, 624, DateTimeKind.Local).AddTicks(1240),
                             Description = "Use leftover carcasses (papos-secos) or mixed bread and prepare a delicious bread soup with coriander and egg. A typical Portuguese dish, vegetarian and without food waste.",
                             Difficulty = 0,
                             IsApproved = "true",
-                            ModifiedDate = new DateTime(2024, 5, 18, 19, 46, 6, 615, DateTimeKind.Local).AddTicks(5747),
+                            ModifiedDate = new DateTime(2024, 5, 20, 21, 4, 54, 624, DateTimeKind.Local).AddTicks(1241),
                             Name = "Açorda with coriander and egg",
                             Photo = "/assets/Açorda with coriander and egg.jpg"
                         });

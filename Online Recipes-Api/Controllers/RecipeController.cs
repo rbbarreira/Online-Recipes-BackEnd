@@ -45,7 +45,7 @@ namespace Online_Recipes_Api.Controllers
 
         [HttpPost]
         [Route("Create Recipe")]
-        //[Authorize(Roles = Role.Admin + "," + Role.User)]
+        [Authorize(Roles = Role.Admin + "," + Role.User)]
         public async Task<IActionResult> Add(Recipe recipe)
         {
             if (recipe == null)
@@ -60,7 +60,7 @@ namespace Online_Recipes_Api.Controllers
 
         [HttpPut]
         [Route("Update Recipe")]
-        //[Authorize(Roles = Role.Admin + "," + Role.User)]
+        [Authorize(Roles = Role.Admin + "," + Role.User)]
         public async Task<IActionResult> Update(Recipe recipe)
         {
             if (recipe.Id == 0)
@@ -75,7 +75,7 @@ namespace Online_Recipes_Api.Controllers
 
         [HttpDelete]
         [Route("Delete By {id}")]
-        //[Authorize(Roles = Role.Admin)]
+        [Authorize(Roles = Role.Admin)]
         public async Task<IActionResult> RemoveById(int id)
         {
             var recipe = await _recipeService.GetById(id);
@@ -105,7 +105,7 @@ namespace Online_Recipes_Api.Controllers
 
         [HttpGet]
         [Route("Search By Ingredient")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<List<Recipe>>> SearchRecipeByIngredient(string name)
         {
             var recipes = _mapper.Map<List<Recipe>>(await _recipeService.SearchRecipeByIngredient(name));
@@ -120,7 +120,7 @@ namespace Online_Recipes_Api.Controllers
 
         [HttpGet]
         [Route("Search By Category")]
-        //[Authorize(Roles = "User")]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<List<Recipe>>> GetRecipeByCategory(string name)
         {
             var recipes = _mapper.Map<List<Recipe>>(await _recipeService.GetRecipeByCategory(name));

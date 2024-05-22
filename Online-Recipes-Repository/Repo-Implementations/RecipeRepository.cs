@@ -53,6 +53,7 @@ namespace Online_Recipes_Repository.Repo_Implementations
                                      .ThenInclude(b => b.Ingredient_Quantities)
                                      .Include(c => c.Preparations)
                                      .Include(d => d.Categories)
+                                     .Include(e => e.Ratings)
                                      .FirstOrDefaultAsync(x => x.Id == id);
 
             return recipe;

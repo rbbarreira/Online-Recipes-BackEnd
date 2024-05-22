@@ -28,7 +28,7 @@ namespace Online_Recipes_Api.Controllers
 
         [HttpGet]
         [Route("Search By {id}")]
-        //[Authorize(Roles = Role.Admin)]
+        [Authorize(Roles = Role.Admin)]
         public async Task<IActionResult> GetById(int id)
         {
             var user = await _userService.GetById(id);
@@ -43,7 +43,7 @@ namespace Online_Recipes_Api.Controllers
 
         [HttpPut]
         [Route("Update User")]
-        //[Authorize(Roles = Role.Admin)]
+        [Authorize(Roles = Role.Admin)]
         public async Task<IActionResult> Update(User user)
         {
             if (user.Id == null)
@@ -59,7 +59,7 @@ namespace Online_Recipes_Api.Controllers
 
         [HttpDelete]
         [Route("Delete By {id}")]
-        //[Authorize(Roles = Role.Admin)]
+        [Authorize(Roles = Role.Admin)]
         public async Task<IActionResult> RemoveById(int id)
         {
             var user = await _userService.GetById(id);
